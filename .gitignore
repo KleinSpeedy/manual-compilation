@@ -50,3 +50,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# Compile step directories
+preprocess
+assembly
+object
+binary
