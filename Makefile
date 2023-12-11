@@ -1,29 +1,21 @@
 CC ?= gcc
 LINKER ?= ld
 
-SRC_F = $(shell find -name '*.c')
-
 PREP_DIR= ./preprocess
-PREP_F = $(SRC_F:%=$(BUILD_DIR)/%.i)
-
 OBJ_DIR= ./object
-OBJ_F = $(PREP_F:%=$(BUILD_DIR)/%.o)
-
 ASM_DIR= ./assembly
-ASM_F = $(OBJ_F:%=$(BUILD_DIR)/%.s)
-
 BIN_DIR := ./binary
 
 TARGET := final.out
 
 help:
-	@echo Print help:
-	@echo make all > Do every step
-	@echo make preprocess > Preprocess all .c files
-	@echo make compile > Compile preprocessed .i files to object files
-	@echo make assemble > Assemble object files
-	@echo make link > Link to get binary
-	@echo make clean > get rid of artifacts
+	@echo "Print help:"
+	@echo "make clean > delete artifacts"
+	@echo "make all > do all at once"
+	@echo "make preprocess > Run preprocessor step on source files"
+	@echo "make compile > Compiles .i to assembly files"
+	@echo "make assemble > Assembles .s files to object files"
+	@echo "make link > Links object files to binary for execution"
 
 all: preprocess compile assemble link
 
