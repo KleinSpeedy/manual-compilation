@@ -19,13 +19,13 @@ help:
 
 all: preprocess compile assemble link
 
-preprocess: main.c add.c
+preprocess:
 	@echo preprocess step
 	@mkdir $(PREP_DIR)
 	$(CC) -E main.c > $(PREP_DIR)/main.i
 	$(CC) -E add.c > $(PREP_DIR)/add.i
 
-compile: $(wildcard *.i)
+compile:
 	@echo compile step
 	@mkdir $(ASM_DIR)
 	$(CC) -S $(PREP_DIR)/main.i -o $(ASM_DIR)/main.s
